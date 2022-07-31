@@ -32,15 +32,15 @@
                     <div class="logo_img">
                         <!-- Lấy ra ảnh menu -->
                         <?php
-							$custom_logo_id = get_theme_mod('custom_logo');
-							$image = wp_get_attachment_image_src($custom_logo_id, 'full');
-							printf(
-								'<a href="%1$s" title="%2$s"><img src="%3$s"></a>',
-								get_bloginfo('url'),
-								get_bloginfo('description'),
-								$image[0]
-							);
-						?>
+                        $custom_logo_id = get_theme_mod('custom_logo');
+                        $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+                        printf(
+                            '<a href="%1$s" title="%2$s"><img src="%3$s"></a>',
+                            get_bloginfo('url'),
+                            get_bloginfo('description'),
+                            $image[0]
+                        );
+                        ?>
                     </div>
                 </div>
                 <div class="header_search_phone">
@@ -62,18 +62,26 @@
             </div>
             <div class="header_menu">
                 <div class="header_menu_left">
-                    <ul class="menu_left">
-                        <?php
-					wp_nav_menu(array(
-						'theme_location'  => 'menu-1',
-						'container'       => '__return_false',
-						'fallback_cb'     => '__return_false',
-						'items_wrap'      => '%3$s',
-						'depth'           => 3,
+                    <div class="menu_left_wrap">
+                        <div class="category_hover">
+                            <a class="a_category" href="#">Danh mục sản phẩm</a>
+                            <div class="menu_left_div">
+                                <ul class="menu_left">
+                                    <?php
+                                    wp_nav_menu(array(
+                                        'theme_location'  => 'menu-1',
+                                        'container'       => '__return_false',
+                                        'fallback_cb'     => '__return_false',
+                                        'items_wrap'      => '%3$s',
+                                        'depth'           => 3,
+                                    ));
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
 
-					));
-					?>
-                    </ul>
+                    </div>
+
                 </div>
                 <div class="header_menu_center"></div>
                 <div class="header_signin_out"></div>
