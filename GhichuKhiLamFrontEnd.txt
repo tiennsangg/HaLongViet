@@ -1,0 +1,190 @@
+
+
+
+Thông tin khi setting website trên local,sub domain
+Phải đặt mật khẩu mặc định quản trị: quantrihazo/admin@123C$$$%%% 
+Email:contact@hazomedia.vn
+
+-----------------------------------------
+
+
+Một số file cơ bản cần biết qua để cắt UI
+
+Trang danh mục sản phẩm :  Hazo / archive-product.php
+Trang chi tiết sản phẩm: Hazo / single-product.php
+Trang chi tiết bài viết: Hazo / single.php
+Trang danh mục bài viết: Hazo / archive.php
+
+1.themes / hazo / header.php
+2.themes / hazo / footer.php
+3.themes / hazo / home.php (Trang chủ website)
+
+4.themes / hazo / sidebar.php
+
+5.themes / hazo / function.php : hiểu sơ qua thì nếu thêm file js hoặc css vào đây chèn thêm dường dẫn vào (function hazo_scripts())
+
+6.themes / hazo / template-page / các file bên trong ( vd: Tạo page-contact.php(Template Name: Trang liên hệ),....)(Chính là các trang con của website) 
+
+7.themes / hazo /assets / các file 
++css (chứa file style.css - tự tạo đặt tên như này)
++js (chứa file index.js (viết js ở file này - đây là file js chính), và 1 số file js khác...)
++fonts (các file font chữ .Đuôi file font: .otf, vd: font-roboto.otf)
++fe-library (để file thư viện css,js vào đây)
++svg (để các file svg icon... vào đây , vd: menu.svg)
++image (chứa các file ảnh...)
+*ghi chú
+get_stylesheet_directory_uri : link đường dẫn trang trỏ đến ....
+vd: link đến file ảnh trong folder đã tải: <?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png
+
+vd:In svg từ file menu.svg (<?php echo svg('menu', '30', '30') ?>)
+
+----------------------------------------------------------------------------
+
+Khi tạo mới file css,js mà muốn sử dụng nó trên website
+Vào file function.php để gọi file đó (themes/hazo/functions.php)
+
+Tìm đến function hazo_scripts(){
+	vd: gọi file css 
+	wp_enqueue_style('hazo-style-main', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION);
+
+	vd: gọi file js.
+	wp_enqueue_script('hazo-js-main', get_template_directory_uri() . '/assets/js/index.js', array(), _S_VERSION, true);
+}
+
+
+Import file font vào css:
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/font-roboto.otf);
+}
+
+
+----------------------------------------------------------------------------
+
+1. Menu chính trên website
+	+ Thường sẽ chỉ css lại( không viết menu mới bởi vì menu tự lấy từ BE in sẵn rồi)
+	vd:
+	<header>
+		<!-- Đây là logo in từ BE -->
+		<div class="header__logo text-center">
+			<?php 
+				$custom_logo_id = get_theme_mod('custom_logo');
+				$image = wp_get_attachment_image_src($custom_logo_id, 'full');
+				printf(
+					'
+						<a href="%1$s" title="%2$s" class="header-sticky-logo"><img src="%3$s"></a>
+					',
+					get_bloginfo('url'),
+					get_bloginfo('description'),
+					$image[0]
+				);
+			?>
+		</div>
+		<!-- Đây là đoạn Menu in từ BE -->
+		<div class="header__nav">
+			<ul class="header-nav nav justify-content-center">
+			<?php
+				wp_nav_menu(array(
+					'theme_location'  => 'menu-1',
+					'container'       => '__return_false',
+					'fallback_cb'     => '__return_false',
+					'items_wrap'      => '%3$s',
+					'depth'           => 2,
+
+				));
+				?>
+			</ul>
+		</div>
+		<div class="bar__mb ms-3 d-xl-none d-flex justify-content-end align-items-center">
+			<?php echo svg('menu', '30', '30') ?>
+		</div>
+	</header>
+
+2.Slider thì công ty mình sẽ thường dùng Flickity - Nên toàn bộ slide sẽ dùng cái này (https://flickity.metafizzy.co/)
+3.Nên để svg inline, không dùng ảnh svg, load dễ bị lỗi
+vd:In svg từ file menu.svg (<?php echo svg('menu', '30', '30') ?>)
+
+4.Các form đơn giản bên mình sẽ dùng (plugin Contact form 7)
+	+ Không css vào chính thẻ form như (input, textarea,button ....)
+	+ Nếu muốn css thì đặt 1 thẻ div bọc các thẻ form trên
+	vd:
+	<div class="form-group form-custom-input">
+		<input type="text">
+	</div>
+	<div class="form-group form-custom-input">
+		<button></button>
+	</div>
+
+5.Không css từ quá xa, các item riêng biệt nên css từ class của chính nó để dễ tận dụng html
+6.Các background-image của section viết style-inline ở html (để BE có thể ghép và sau khách có thể thay đổi ảnh)
+7.Các đoạn văn bản: Không đặt class vào các thẻ, chỉ đặt 1 class chung bao ngoài content rồi css vào các thẻ bên trong
+8.Nên dùng svg thay cho font-awesome do có nhiều icon không dùng đến
+Thường nếu làm từ trang thiết kế figma ( Sẽ lấy icon từ figma rồi).
+9.Nếu dùng bootstrap thì ngoài grid nên tận dụng tối đa các class của bootstrap
+10.Giá tiền sản phẩm
+	<div class="item__price">
+		<!-- km -->
+	   	<ins>
+	        <span class="woocommerce-Price-amount amount">
+	            <bdi>
+	                <span class="woocommerce-Price-currencySymbol">vnđ
+	                </span>
+	                300.000
+	            </bdi>
+	        </span>
+	    </ins>
+	    <del aria-hidden="true">
+	        <span class="woocommerce-Price-amount amount"><bdi>
+	            <span class="woocommerce-Price-currencySymbol">
+	                vnđ
+	            </span>
+	            500.000
+	        </bdi>
+	    </span>
+	    </del>  
+
+	    <!-- ko km -->
+	    <span class="woocommerce-Price-amount amount">
+	        <bdi>
+	            <span class="woocommerce-Price-currencySymbol">vnđ</span>
+	            500.000
+	        </bdi>
+	    </span>
+	    <!-- ko co gia -->
+	    Liên hệ 
+	</div>
+11. Responsive
+	+ Khi responsive (chỉ nên dùng các màn sau)
+
+	@media (max-width: 1399px){}
+	@media (max-width: 1199px){}
+	@media (max-width: 991px){}
+	@media (max-width: 767px){}
+	@media (max-width: 575px){}
+
+	@media (min-width: 576px){}
+	@media (min-width: 768px){}
+	@media (min-width: 992px){}
+	@media (min-width: 1200px){}
+	@media (max-width: 1400px){}
+
+14.css nên dùng các biến để đặt tên cho màu: bởi vì nhiều màu sẽ dùng lại.
+:root {
+  --color-main: #F5B941;
+  --color-main2: #25282B;
+ 	--color-333: #333;
+}
+vd: dùng màu #F5B941 - color:var(--color-main);
+
+15. Dùng thêm thư viện wow, animation cho website cho thêm sôi động, mượt mà 
+	+không nên lạm dụng quá và chỉ sử dụng những hiệu ứng đơn giản( trượt từ dưới lên trên, trái qua phải ....)
+	+ dùng nhiều quá hoặc hiệu ứng nhảy nhảy các thứ nhìn rất dối mắt
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+/*tham khảo menu trang https://hyosungholdings.com.vn/*/
+
+/*submenu tham khảo trang này http://pnp.hazomedia.net/danh-muc-dich-vu/phun-theu-tham-my-chau-au/*/
+
+@media (max-width: 1199px){
+  .bar__mb{ transform: translateY(4px);}
+  .bar__mb svg path[fill="currentColor"]{fill: var(--color-131D3B);}
+
+  .menu-mobile {position: fixed; top: 0; left: 0; width: 400px; height: 100%; max-width: 80%; background-color: #fff; z-index: 9999; transform: translateX(-100%); transition: 0.5s; padding-bottom: 50px; overflow: auto; bottom: 0; }
+  .menu-mobile.menu-mobile-active {transform: translate(0); }
+  .menu-mobile .header-nav {list-style: none; flex-direction: column; }
+  .menu-mobile .header-nav > li {position: relative; border-bottom: 1px solid #ddd; }
+  #header .header__nav .header-nav > li >.sub-menu > li {position: relative;}
+
+  .bar__mb  svg{cursor: pointer;}
+  #header .header-nav > li.current_page_item > a {background-color: var(--color-main); }
+  .menu-mobile .header-nav li a {color: var(--color-main); font-size: 15px; display: block; padding: 7px 10px; text-transform: uppercase; }
+  .menu-mobile .header-nav .current-menu-item a {
+    color: #fff ; background: var(--color-main); font-weight: var(--weight-600);
+  }
+  .menu-mobile .header-nav li >ul li a {padding-left: 25px; }
+  .menu-mobile .header-nav li> ul {margin-top: 0; display: none; }
+  .menu-mobile .menu-mobile-close {width: 40px; height: 40px; line-height: 40px; text-align: center; top: 0; right: 0px; margin-left: auto; }
+  .menu-mobile .menu-mobile-close svg{cursor: pointer;}
+
+  .menu-mobile .header-nav  li .li-plus:before {width: 11px; height: 1px; }
+  .menu-mobile .header-nav  li .li-plus:after {width: 1px; height: 11px; }
+  .menu-mobile .header-nav li .li-plus:before, .menu-mobile .header-nav li .li-plus:after {
+    position: absolute; content: ""; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background-color: var(--color-main);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    -webkit-transform: translate(-50%, -50%) rotate(-90deg);
+    -moz-transform: translate(-50%, -50%) rotate(-90deg);
+    -ms-transform: translate(-50%, -50%) rotate(-90deg);
+    -o-transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  .menu-mobile .header-nav li .clicked {transform: rotate(180deg); }
+  .menu-mobile .header-nav li .clicked.li-plus:before {display: none; }
+  .menu-mobile .header-nav li .li-plus {
+    cursor: pointer;
+    position: absolute; width: 40px; height: 38px; line-height: 38px; text-align: center;
+    display: block; top: 0; right: 0; color: var(--color-main);
+    transition: 0.3s; -webkit-transition: 0.3s; -moz-transition: 0.3s; -ms-transition: 0.3s; -o-transition: 0.3s;
+  }
+  .menu-mobile .header-nav li.current-menu-item .li-plus{color:#fff;}
+  .menu-mobile .header-nav li.current-menu-item .li-plus:before, .menu-mobile .header-nav li.current-menu-item .li-plus:after{
+    background-color:#fff;
+  }
+  .menu-mobile .header-nav ul > li > ul {padding-left: 1.5rem; font-size: 14px; }
+  .menu-mobile .header-nav li ul li a {font-size: 14px; }
+  
+}   
