@@ -45,6 +45,9 @@
                 </div>
                 <div class="header_search_phone">
                     <div class="header_search">
+                        <div class="search-mobile">
+                            <?php echo svg('search-mobile', '30', '30') ?>
+                        </div>
                         <div class="input_search">
                             <form action="#">
                                 <input type="text" id="search" placeholder="Tìm kiếm">
@@ -54,19 +57,23 @@
                     </div>
                     <div class="header_phone">
                         <div class="svg_phone">
-                            <?php echo svg('phone', '30', '30') ?> &nbsp;
+                            <a href="tel:012345678" class="phone_mobile"><?php echo svg('phone', '25', '25') ?></a>
                         </div>
-                        <a href="tel:012345678">0936.286.686</a>
+                        <a class="phone_desk" href="tel:012345678">0936.286.686</a>
                     </div>
                 </div>
             </div>
             <div class="header_menu">
                 <div class="header_menu_left">
                     <div class="menu_left_wrap">
+                        <div class="header__bars">
+                            <?php echo svg('dashicons_menu', '30', '30') ?>
+                        </div>
                         <div class="category_hover">
                             <a class="a_category" href="#">Danh mục sản phẩm</a>
                             <div class="menu_left_div">
                                 <ul class="menu_left">
+                                    <!-- Lấy ra menu -->
                                     <?php
                                     wp_nav_menu(array(
                                         'theme_location'  => 'menu-1',
@@ -79,18 +86,39 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-                <div class="header_menu_center"></div>
-                <div class="header_signin_out"></div>
+                <div class="header_menu_center">
+                    <ul class="menu-center">
+                        <!-- Lấy ra menu -->
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location'  => 'menu-1',
+                            'container'       => '__return_false',
+                            'fallback_cb'     => '__return_false',
+                            'items_wrap'      => '%3$s',
+                            'depth'           => 3,
+                        ));
+                        ?>
+                    </ul>
+                </div>
+                <div class="header_signin_out">
+                    <div class="signin_out">
+                        <a href="#"><?php echo svg('signin', '24', '24') ?></a>
+                        <div class="signin_out_a">
+                            <a class="signin" href="#">Đăng ký</a>
+                            <span>/</span>
+                            <a class="signout" href="#">Đăng nhập</a>
+                        </div>
+                    </div>
+                    <div class="header_cart">
+                        <a href="#"><?php echo svg('cart','24','24') ?></a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-
-    <!-- Lấy ra menu -->
 
 
     <div class="bar__mb d-lg-none d-block">

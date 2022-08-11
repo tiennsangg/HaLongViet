@@ -1,0 +1,158 @@
+.banner_top {
+    .banner_top_div {
+        width: 100%;
+        margin-top: -25px;
+        position: relative;
+
+        .banner_top_img {
+            img {
+                width: 100%;
+                opacity: 0.5;
+            }
+        }
+
+        .banner_content {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .content {
+                text-align: center;
+
+                a {
+                    font-size: 16px;
+                    color: #333333;
+                }
+
+                h2 {
+                    font-weight: 700;
+                    font-size: 48px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.about {
+    margin-top: 50px;
+
+    .about_heading {
+        ul {
+            display: flex;
+            gap: 0 40px;
+            border-bottom: 1px solid #D9D9D9;
+            padding-bottom: 10px;
+
+            li {
+                padding-left: 0;
+
+                a {
+                    color: #444444;
+                }
+            }
+        }
+    }
+
+    .about_heading ul li:hover {
+        a {
+            font-weight: 700;
+        }
+    }
+
+    .about_post {
+        margin-top: 40px;
+
+        .post_heading {
+            p {
+                font-size: 48px;
+                font-weight: 700;
+            }
+        }
+
+        .post {
+            margin-bottom: 73px;
+        }
+    }
+
+    .about_vision_mission {
+        margin-top: 73px;
+        .vision {
+            padding: 83px;
+            background-color: #F2F2F2;
+        }
+        .mission {
+            padding: 83px;
+            background-color: #F2F2F2;
+        }
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.product_watched {
+    margin-top: 80px;
+    h2 {
+        font-size: 48px;
+        font-weight: 700;
+    }
+    .product_watched_div {
+        .watched_heading {
+            text-align: center;
+        }
+    }
+    .product_new_items {
+        margin-top: 40px;
+        padding: 10px;
+        background-color: #F6F6F6;
+        margin-bottom: 39px;
+        .div_img {
+            .product_new_img {
+                padding-top: 96.410%;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .product_new_name {
+            text-align: center;
+            margin-top: 23.5px;
+
+            p {
+                font-size: 18px;
+                color: #555555;
+            }
+        }
+
+        .product_new_price {
+            margin-top: 15.5px;
+            display: flex;
+            justify-content: space-around;
+
+            del {
+                color: #6B6B6B;
+                font-weight: 500;
+            }
+
+            ins {
+                color: #FF0000;
+                font-size: 30px;
+                font-weight: 500;
+            }
+        }
+    }
+}

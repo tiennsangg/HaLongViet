@@ -166,6 +166,7 @@ function hazo_scripts()
 	wp_enqueue_script('hazo-js-cuttr', get_template_directory_uri() . '/assets/fe-library/cuttr.min.js', array(), _S_VERSION, true);
 
 	wp_enqueue_script('hazo-js-main', get_template_directory_uri() . '/assets/js/index.js', array(), _S_VERSION, true);
+	wp_enqueue_script('hazo-js-main', get_template_directory_uri() . '/assets/js/resize_left_menu.js', array(), _S_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'hazo_scripts');
 

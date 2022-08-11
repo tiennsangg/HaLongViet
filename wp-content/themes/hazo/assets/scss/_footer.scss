@@ -1,0 +1,89 @@
+@font-face {
+    font-family: lato;
+    src: url(../fonts/Lato-Regular.ttf);
+}
+.footer_div {
+    h2 {
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 700;
+        color: #F6A822;
+        margin-bottom: 32px;
+    }
+    a {
+        display: block;
+        font-family: lato;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 8px;
+        color: #000000;
+    }
+    .about_company {
+        p {
+            font-family: lato;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #000000;
+        }
+        .footer_fb {
+            margin-top: 37px;
+            display: flex;
+            gap: 0 30px;
+        }
+    }
+    .footer_direct {
+        padding-left: 30px;
+    }
+    .form_advise {
+        input {
+            border: 1px solid #999999;
+            padding: 10px;
+            width: 90%;
+            margin-bottom: 10px;
+        }
+        .button_show_more {
+    
+            button {
+                padding: 5px 43px;
+                background-color: #F6A822;
+                border: none;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .footer_map {
+        iframe {
+            width: 100%;
+        }
+    }
+    .footer_line_color {
+        height: 107px;
+        width: 100%;
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 1599px) {
+}
+@media screen and (max-width: 1399px) {
+}
+@media screen and (max-width: 1199px) {
+    
+}
+@media screen and (max-width: 991px) {
+    .footer_div .footer_direct {
+        padding-left: 0;
+    }
+
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 575px) {
+}
+@media screen and (max-width: 414px) {
+}
+@media screen and (max-width: 375px) {
+}
+@media screen and (max-width: 320px) {
+}

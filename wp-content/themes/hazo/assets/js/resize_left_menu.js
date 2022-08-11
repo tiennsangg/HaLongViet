@@ -1,0 +1,1 @@
+$(".sub-menu").css("min-height", $('.menu_left').height() + "px");

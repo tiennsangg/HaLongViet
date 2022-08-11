@@ -14,7 +14,6 @@ html {
     }
 }
 
-:root {}
 
 @media (min-width: 992px) {
     .gutter-20 {
@@ -82,12 +81,23 @@ body.hidden {
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
 }
 
 @import 'header';
+@import 'menuMobile';
+@import 'main_home';
+@import 'main_about';
+@import 'main_detail_product';
+@import 'main_galery_images.scss';
+@import 'main_news';
+@import 'main_news_post';
+@import 'main_policy';
+@import 'main_product';
+@import 'main_contact';
+@import 'footer';

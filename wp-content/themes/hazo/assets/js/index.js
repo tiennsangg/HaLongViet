@@ -3,7 +3,7 @@
     $(document).ready(function () {
       menuMobile();
       backToTop();
-    
+
     });
   };
 })(jQuery);
@@ -98,3 +98,68 @@ function duplicateSlides(cellSelector) {
 }
 
 duplicateSlides(".corn-food .carousel-cell");
+
+function slide_header() {
+  $('.slide_div').flickity({
+    cellAlign: 'left',
+    contain: true,
+    // autoPlay: 3000,
+    wrapAround: true,
+    freeScroll: false,// ảnh dừng sẽ ko bị đứt
+    imagesLoaded: true, //cần dùng khi dùng freescroll
+    fade: true,
+    pageDots: false,
+    prevNextButtons: false,
+    draggable: true,
+  });
+}
+slide_header();
+
+// Menu mobile
+function menuMobile() {
+  $(".header__bars").click(function () { //Tìm class header__bar và bắt sự kiện click vào class đó tạo ra function
+    $(".overlay").addClass("overlay-active");
+    $(".menu-mobile").addClass("menu-mobile-active");
+  });
+  // show search
+  $(".search-mobile").click(function () { //Tìm class search-mobile-wrap và bắt sự kiện click vào class đó tạo ra function
+    $(".overlay").addClass("overlay-active");
+    $(".search-mobile-wrap").addClass("search-mobile-active");
+  });
+  // overlay remove
+  $(".overlay").click(function () {
+    $(".search-mobile-wrap").removeClass("search-mobile-active");
+    $(".overlay").removeClass("overlay-active");
+    $(".menu-mobile").removeClass("menu-mobile-active");
+    $(".box-search_header").removeClass("active");
+    $('.cart-quickview').removeClass('active');
+    $('.product__sidebar').removeClass('active');
+    $('.search__mobile').removeClass('active');
+
+  });
+  // icon close remove
+  $(".menu-mobile-close").click(function () {
+    $(".overlay").removeClass("overlay-active");
+    $(".menu-mobile").removeClass("menu-mobile-active");
+  });
+  // search close remove
+  $(".close-search").click(function () {
+    $(".overlay").removeClass("overlay-active");
+    $(".search-mobile-wrap").removeClass("search-mobile-active");
+  });
+  // $('.menu-mobile').show();    
+  $(".menu-mobile ul li.menu-item-has-children>ul").before(`<span class="li-plus"></span>`);
+  $(".menu-mobile ul li.current-menu-parent.menu-item-has-children .li-plus").addClass("clicked");
+  // if ($(".li-plus").length) {
+  $(".li-plus").click(function (e) {
+    if ($(this).hasClass("clicked")) {
+      $(this).removeClass('clicked').siblings('ul').slideUp(); //Xóa class clicked biến trừ thành cộng, sibling(ul) cùng cấp với thằng đang ấn li-plus nó add thêm slideUp để đóng vào 
+    } else {
+      $(this).parent().siblings('li').find('.li-plus').removeClass('clicked').find("ul").slideUp(); //
+      $(this).parent().siblings().find("ul").slideUp();
+      $(this).addClass('clicked').siblings('ul').slideDown();
+    }
+  });
+  // }
+
+}
